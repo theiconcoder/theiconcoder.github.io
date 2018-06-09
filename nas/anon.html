@@ -28,6 +28,9 @@
       <div class="loading-inner"></div>
     </div>
     <div class="login clearfix" v-if="!isLogined">
+      <div class="line-left"></div>
+      <div class="line-right"></div>
+      <div class="logo">?</div>
       <input type="text" class="username" placeholder="输入2-10个字符的用户名" v-model="username">
       <button @click="searchUser">检索</button>
     </div>
