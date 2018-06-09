@@ -1,0 +1,206 @@
+[v-cloak] {
+  display: none;
+}
+/* 弹出窗 */
+.notice {
+  padding: 20px;
+  background-color: #000;
+  position: fixed;
+  z-index: 999;
+  border-radius: 20px;
+  border: 2px solid white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.help{
+  position: fixed;
+  right: 5px;
+  top: 5px;
+}
+.help li{
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+.help li:hover{
+  transform: scale(1.2);
+  transform-origin: right top;
+}
+/* 加载 */
+.loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  width: 100%;
+  overflow: hidden;
+}
+.loading-inner {
+  background-color: #477ad2;
+  height: 100%;
+  width: 30%;
+  border-radius: 5px;
+  animation: loading 2s ease-in-out infinite;
+}
+@keyframes loading {
+  from {
+    transform: translateX(-100%);
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  to {
+    width: 30%;
+    transform: translateX(350%);
+  }
+}
+/* 登录部分 */
+.login {
+  position: fixed;
+  width: 400px;
+  height: 210px;
+  margin: auto;
+  margin-top: 150px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #111;
+  padding: 10px;
+}
+.login input {
+  width: 100%;
+  font-size: 16px;
+  margin: 10px 0;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.login .tips{
+  display: inline-block;
+}
+.login button{
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #111;
+  float: right;
+  color: white;
+  cursor: pointer;
+}
+/* 功能模块切换 */
+.main-btns button{
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: transparent;
+  border-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.main-btns button:hover {
+  background-color: #111;
+  border-color: white;
+  
+}
+/* 主区 */
+#app {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  width: 400px;
+  margin: 0 auto;
+}
+#app button {
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #111;
+  float: right;
+  color: white;
+  cursor: pointer;
+}
+/* 发送区 */
+textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #111;
+  color: white;
+  font-size: 20px;
+  resize: none;
+}
+.post-history{
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #111;
+}
+.history-item {
+  padding: 15px;
+}
+.post-content{
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+.discuss-content{
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.discuss-input-wrapper {
+  vertical-align: middle;
+}
+.discuss-input-wrapper button{
+  vertical-align: middle;
+  margin-top:3px!important;
+}
+.disscuss-input {
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #111;
+  padding: 10px;
+  width: calc(100% - 70px);
+}
+/* 阅读区 */
+.read-section .refresh{
+  text-align: right;
+}
+.read-section .refresh span{
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border: 1px solid white;
+}
+.read-content{
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: #111;
+  color: white;
+  font-size: 20px;
+  resize: none;
+}
+.discuss-section{
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #111;
+}

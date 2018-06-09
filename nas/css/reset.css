@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  color: white;
+  box-sizing: border-box;
+}
+ul,li,ol{
+  list-style: none;
+}
+html,body {
+  height: 100%;
+  width: 100%;
+  min-width: 600px;
+  background-color: #333;
+  overflow-y: auto;
+}
+.clearfix:after {
+  content:""; 
+  display: block; 
+  clear:both; 
+}

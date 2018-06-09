@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+  <script src="https://cdn.bootcss.com/js-sha256/0.9.0/sha256.js"></script>
+  <script src="./js/nebulas.js"></script>
+  <script src="./js/nebpay.js"></script>
+</head>
+<body>
+  <div id="Anon">
+    <div class="notice" v-cloak v-show="noticeShow">
+      {{noticeMessage}}
+    </div>
+    <ul class="help">
+      <a href="https://github.com/nebulasio/WebExtensionWallet">
+        <li>钱包插件</li>
+      </a>
+      <a href="https://github.com/theiconcoder/theiconcoder.github.io"></a>
+      <li>github</li>
+    </ul>
+    <div class="loading" v-if="isLoading">
+      <div class="loading-inner"></div>
+    </div>
+    <div class="login clearfix" v-if="!isLogined">
+      <input type="text" class="username" placeholder="输入2-10个字符的用户名" v-model="username">
+      <button @click="searchUser">检索</button>
+    </div>
+    <div id="app" v-cloak v-else>
+      <div class="main-btns">
+        <button @click="changeModel('read')" v-if="model==='post'">读一条</button>
+        <button @click="changeModel('post')" v-if="model==='read'">发一条</button>
+      </div>
+      <div class="post-section" v-if="model === 'post'">
+        <div class="clearfix">
+          <textarea name="" id="" rows="10" placeholder="不要写太多哟" v-model="postValue"></textarea>
+          <button @click="postAnon">发送</button>
+        </div>
+        <ul class="post-history">
+          <li v-for="item in myMessageList" class="history-item">
+            <p class="post-content">
+              {{item.content}}
+            </p>
+            <ul>
+              <li v-for="discuss in item.discuss">
+                <p class="discuss-content">
+                  {{discuss.owner}}：{{discuss.content}}
+                </p>
+              </li>
+            </ul>
+            <div class="discuss-input-wrapper">
+              <input class="disscuss-input" type="text" v-model="discussValues[item.id]">
+              <button @click="sendDiscuss(item.id)">评论</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="read-section clearfix" v-if="model === 'read'">
+          <div class="refresh">
+            <span @click="readOne">刷新</span>
+          </div>
+          <p class="read-content">
+              {{readMessage.content}}
+          </p>
+          <ul class="discuss-section" v-if="readMessage.discuss && readMessage.discuss.length > 0">
+            <li v-for="discuss in readMessage.discuss">
+              <p class="discuss-content">
+                {{discuss.owner}}：{{discuss.content}}
+              </p>
+            </li>
+          </ul>
+          <div class="discuss-input-wrapper">
+            <input class="disscuss-input" type="text" v-model="discussValues[readMessage.id]">
+            <button @click="sendDiscuss(readMessage.id)">评论</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
